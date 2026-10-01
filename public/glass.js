@@ -46,8 +46,8 @@
   for(let i=1;i<source.length-1;i++)texturedTriangle([source[0],source[i],source[i+1]],[v[0],v[i],v[i+1]],p.released?(p.landed?.24:.34):1);
   if(!p.released)return;
   path(v);const g=ctx.createLinearGradient(v[0].x,v[0].y,v[Math.floor(v.length/2)].x+1,v[Math.floor(v.length/2)].y+1);g.addColorStop(0,'#cce8df08');g.addColorStop(.45,'#c1e4ec20');g.addColorStop(1,'#ffffff05');ctx.fillStyle=g;ctx.fill();
-  ctx.lineJoin='round';ctx.strokeStyle=p===selected?'#f3fff5c0':'#c6e4e060';ctx.lineWidth=p===selected?1.15:.65;ctx.stroke();
-  for(let i=0;i<v.length;i++){const a=v[i],b=v[(i+1)%v.length],light=.25+.55*Math.abs(Math.cos(p.angle+i*1.7+p.tilt));ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.strokeStyle=`rgba(236,250,248,${light})`;ctx.lineWidth=.5+(p.landed?.25:.65);ctx.stroke();}
+  ctx.lineJoin='round';ctx.strokeStyle=p===selected?'#f3fff5c0':'#c6e4e018';ctx.lineWidth=p===selected?1.15:.65;ctx.stroke();
+  for(let i=0;i<v.length;i++){const a=v[i],b=v[(i+1)%v.length],light=.04+.28*Math.pow(Math.abs(Math.cos(p.angle+i*1.7+p.tilt)),8);ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.strokeStyle=`rgba(236,250,248,${light})`;ctx.lineWidth=.35+(p.landed?.2:.4);ctx.stroke();}
   // The cut edge catches light; the broad face remains transparent.
   if(!p.landed&&Math.abs(Math.cos(p.tilt))<.22){path(v);ctx.strokeStyle='#edf9f5d0';ctx.lineWidth=1.25;ctx.stroke();}
  }
@@ -71,7 +71,7 @@
  }
  function fragment(poly,hit){
   const x=poly.reduce((a,v)=>a+v.x,0)/poly.length,y=poly.reduce((a,v)=>a+v.y,0)/poly.length,area=Math.abs(poly.reduce((a,v,i)=>{const q=poly[(i+1)%poly.length];return a+v.x*q.y-q.x*v.y;},0)/2),distance=Math.hypot(x-hit.x,y-hit.y);
-  return {x,h:500-y,z:0,source:poly,local:poly.map(v=>({x:v.x-x,y:v.y-y})),area,mass:Math.max(.3,area/2200),radius:clamp(Math.sqrt(area)*.22,4,18),angle:0,tilt:0,spin:rand(-1.8,1.8),tumble:rand(-2.8,2.8),vx:(x-hit.x)/(distance||1)*rand(30,120)+rand(-24,24),vh:rand(10,100),vz:rand(65,160),released:false,delay:.04+distance*.00035,landed:false,sleep:0};
+  return {x,h:500-y,z:0,source:poly,local:poly.map(v=>({x:v.x-x,y:v.y-y})),area,mass:Math.max(.3,area/2200),radius:clamp(Math.sqrt(area)*.22,4,18),angle:0,tilt:0,spin:rand(-1.8,1.8),tumble:rand(-2.8,2.8),vx:(x-hit.x)/(distance||1)*rand(30,120)+rand(-24,24),vh:rand(10,100),vz:rand(30,280),released:false,delay:.04+distance*.00035,landed:false,sleep:0};
  }
  function fracture(hit){
   const sites=[];
