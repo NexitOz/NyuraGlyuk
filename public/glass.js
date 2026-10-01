@@ -80,7 +80,7 @@
   pieces=[];for(let i=0;i<sites.length;i++){let poly=[{x:pane.x,y:pane.y},{x:pane.x+pane.w,y:pane.y},{x:pane.x+pane.w,y:pane.y+pane.h},{x:pane.x,y:pane.y+pane.h}];const a=sites[i];for(let j=0;j<sites.length&&poly.length;j++){if(i===j)continue;const b=sites[j];poly=clipPolygon(poly,b.x-a.x,b.y-a.y,(b.x*b.x+b.y*b.y-a.x*a.x-a.y*a.y)/2);}if(poly.length>=3)pieces.push(fragment(poly,hit));}
   const rays=[];for(let i=0;i<14;i++){const a=i*Math.PI/7+rand(-.08,.08),ray=[];for(let r=20;r<900;r+=rand(30,65))ray.push({x:hit.x+Math.cos(a)*r+rand(-5,5),y:hit.y+Math.sin(a)*r+rand(-5,5)});rays.push(ray);}
   impact={x:hit.x,y:hit.y,time:clock,rays};broken=true;stone=null;throwButton.disabled=true;shuffleButton.disabled=false;selected=null;
-  canvas.setAttribute('aria-label','Разбитое окно и стекло на асфальте. Перетаскивай осколки мышью или пальцем. Стрелки двигают выбранный осколок.');status.textContent='Вдребезги. Потаскай стекло по асфальту.';shatterSound();
+  canvas.setAttribute('aria-label','Разбитое окно и стекло на асфальте. Перетаскивай осколки мышью или пальцем. Стрелки двигают выбранный осколок.');status.textContent='Вдребезги. Потаскай стекло по асфальту.';document.dispatchEvent(new Event('nyura:glass-broken'));shatterSound();
  }
  function physics(dt){
   for(const p of pieces){
@@ -106,7 +106,7 @@
  }
  function wake(){if(disposed||!visible||raf)return;last=performance.now();raf=requestAnimationFrame(tick);}
  function throwAt(x,y){if(!imagesReady||broken||stone)return;unlock();selected=null;runningFor=0;stone={x:clamp(x,pane.x+15,pane.x+pane.w-15),y:clamp(y,pane.y+15,pane.y+pane.h-15),time:0,startX:W*.68,startY:H+30};status.textContent='Лови!';if(reduced.matches)fracture(stone);wake();}
- function reset(){if(drag)try{canvas.releasePointerCapture(drag.id);}catch{}pieces=[];stone=null;broken=false;drag=null;selected=null;impact=null;runningFor=0;hover=null;throwButton.disabled=!imagesReady;shuffleButton.disabled=true;status.textContent=imagesReady?'Нажми на стекло. Потом потаскай осколки по асфальту.':'Сцена загружается…';canvas.setAttribute('aria-label','Реалистичное окно на ночной улице. Нажми на стекло или Enter, чтобы бросить камень.');draw();}
+ function reset(){if(broken)document.dispatchEvent(new Event('nyura:glass-reset'));if(drag)try{canvas.releasePointerCapture(drag.id);}catch{}pieces=[];stone=null;broken=false;drag=null;selected=null;impact=null;runningFor=0;hover=null;throwButton.disabled=!imagesReady;shuffleButton.disabled=true;status.textContent=imagesReady?'Нажми на стекло. Потом потаскай осколки по асфальту.':'Сцена загружается…';canvas.setAttribute('aria-label','Реалистичное окно на ночной улице. Нажми на стекло или Enter, чтобы бросить камень.');draw();}
  function point(event){const r=canvas.getBoundingClientRect();return {x:(event.clientX-r.left)*W/r.width,y:(event.clientY-r.top)*H/r.height};}
  function inside(p,q){const v=vertices(p);let sign=0;for(let i=0;i<v.length;i++){const a=v[i],b=v[(i+1)%v.length],cross=(b.x-a.x)*(q.y-a.y)-(b.y-a.y)*(q.x-a.x);if(Math.abs(cross)<.01)continue;if(sign&&Math.sign(cross)!==sign)return false;sign=Math.sign(cross);}return true;}
  function pick(q){const order=[...pieces].sort((a,b)=>b.z-a.z),exact=order.find(p=>p.released&&inside(p,q));if(exact)return exact;const near=order.map(p=>({p,d:Math.hypot(projection(p.x,p.h,p.z).x-q.x,projection(p.x,p.h,p.z).y-q.y)})).sort((a,b)=>a.d-b.d)[0];return near&&near.d<18?near.p:null;}
