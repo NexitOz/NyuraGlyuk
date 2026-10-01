@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>НЮРА ГЛЮК — Не лечи. Включай.</title>
+<meta name="description" content="Нюра Глюк. Дерзкий клубный звук, бытовой абсурд и немного плохих идей. Знакомься с новой виртуальной исполнительницей.">
+<meta name="theme-color" content="#10110f">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23c9fc39'/%3E%3Cpath d='M15 16v32m0-16h24m0-16v32m7-25h8v8h-8z' stroke='%2310110f' stroke-width='7' fill='none'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="styles.css">
+<script src="app.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#tracks">К трекам</a>
+<header class="header">
+ <a class="brand" href="#home" aria-label="Нюра Глюк — начало">НГ<span class="brand-dot">✳</span></a>
+ <nav aria-label="Навигация"><a href="#tracks">Треки</a><a href="#nyura">Кто такая Нюра</a><a href="#glitch">Поймать глюк</a></nav>
+ <span class="header-note">ХОРОШО СЕБЯ НЕ ВЕДУ</span>
+</header>
+<main>
+<section class="hero" id="home" aria-labelledby="title">
+ <div class="hero-photo"><img src="assets/nyura.webp" alt="Нюра Глюк: короткие тёмные волосы с лаймовой прядью, кожаная куртка и ехидная улыбка" width="1254" height="1254" fetchpriority="high"><div class="photo-label">ПРИЛИЧНАЯ. ПОЧТИ.</div><span class="photo-index">НЮРА / 001</span></div>
+ <div class="hero-copy"><p class="eyebrow">КЛУБНЫЙ ЗВУК. БЫТОВОЙ БЕСПРЕДЕЛ.</p><h1 id="title"><span>НЮРА</span><span class="glitch-word">ГЛЮК<i aria-hidden="true">✳</i></span></h1><p class="hero-tag">Не лечи.<br><em>Включай.</em></p><p class="hero-intro">В голове бардак.<br>В колонках — порядок.</p><a class="button lime" href="#glitch">Слушать «Приличную»</a><div class="hero-bottom"><span>ВИРТУАЛЬНАЯ ИСПОЛНИТЕЛЬНИЦА</span><span>ПОГРОМЧЕ, ПОЖАЛУЙСТА</span></div></div>
+</section>
+<div class="ticker" aria-hidden="true"><div>НЕ ЛЕЧИ ✳ ВКЛЮЧАЙ ✳ Я НЕ ЛАПОЧКА ✳ НЕ ЛЕЧИ ✳ ВКЛЮЧАЙ ✳ Я НЕ ЛАПОЧКА ✳ НЕ ЛЕЧИ ✳ ВКЛЮЧАЙ ✳ Я НЕ ЛАПОЧКА ✳</div></div>
+<section class="section tracks" id="tracks" aria-labelledby="tracks-title">
+ <div class="section-top"><p class="eyebrow">01 / ПЕРВЫЕ ПЛОХИЕ ИДЕИ</p><span class="small-note">Первая запись уже здесь. Дальше — громче.</span></div>
+ <h2 id="tracks-title">Застрянет.<br><span class="outline">Не извиняюсь.</span></h2>
+ <div class="track-grid">
+  <article class="track active" data-track="0"><div class="track-art art-one"><span class="track-number">01</span><span class="art-label">Я НЕ<br>ЛАПОЧКА<span class="star">✳</span></span><span class="art-foot">НЮРА ГЛЮК</span></div><div class="track-meta"><h3>Приличная</h3><span class="status">ДЕМО · 2:29</span></div><p>Для тех, кого зря назвали паинькой.</p><button class="text-button" type="button" data-open="0" aria-controls="lyric-panel" aria-pressed="true">Читать припев <span aria-hidden="true">+</span></button></article>
+  <article class="track" data-track="1"><div class="track-art art-two"><span class="track-number">02</span><span class="art-label">НЕ<br>ЛЕЧИ<span class="star">×</span></span><span class="art-foot">НЮРА ГЛЮК</span></div><div class="track-meta"><h3>Не лечи</h3><span class="status">В РАБОТЕ</span></div><p>Советов хватит. Добавь баса.</p><button class="text-button" type="button" data-open="1" aria-controls="lyric-panel" aria-pressed="false">Читать припев <span aria-hidden="true">+</span></button></article>
+  <article class="track" data-track="2"><div class="track-art art-three"><span class="track-number">03</span><span class="art-label">Я В<br>ПАКЕТИКЕ<span class="star">≋</span></span><span class="art-foot">НЮРА ГЛЮК</span></div><div class="track-meta"><h3>Я в пакетике</h3><span class="status">В РАБОТЕ</span></div><p>Все планы отменены. Я шуршу.</p><button class="text-button" type="button" data-open="2" aria-controls="lyric-panel" aria-pressed="false">Читать припев <span aria-hidden="true">+</span></button></article>
+ </div>
+ <div class="lyric-panel" id="lyric-panel" aria-live="polite"><div><p class="eyebrow" id="lyric-title">ПРИЛИЧНАЯ / ПРИПЕВ</p><p class="lyrics" id="lyrics">Я не лапочка — я сбой,<br>Не знакомь меня с семьёй.<br>Я приличная. Почти.<br>При мне маме не пиши.</p></div><div class="lyric-side"><span class="quote-mark" aria-hidden="true">“</span><button class="button secondary" id="copy" type="button">Забрать фразу</button><p id="copy-state" role="status">Для подписи к твоему видео.</p></div></div>
+</section>
+<section class="about" id="nyura" aria-labelledby="about-title"><div class="about-image"><img src="assets/nyura.webp" alt="Портрет Нюры Глюк" width="1254" height="1254" loading="lazy"><span class="image-sticker">НЕ ПАИНЬКА</span></div><div class="about-copy"><p class="eyebrow">02 / ЗНАКОМИМСЯ БЕЗ ПРИЛИЧИЙ</p><h2 id="about-title">Мама,<br>это <em>глюк.</em></h2><p>Нюра поёт то, что ты хотел сказать, но отправил стикером.</p><p>Бывшие, ночные магазины, отменённые планы и уверенность, которой хватит на весь танцпол. Виртуальная девушка. Очень знакомые заморочки.</p><div class="personality"><span>ЕХИДНАЯ</span><span>ШУМНАЯ</span><span>САМА СЕБЕ КРАШ</span></div><p class="signature">«У меня внутри бардак.<br>Мне красиво даже так».</p></div></section>
+<section class="section playground" id="glitch" aria-labelledby="glitch-title"><div class="section-top"><p class="eyebrow">03 / ПЕРВАЯ ЗАПИСЬ</p><span class="small-note">Соседи потерпят. Но это не точно.</span></div><div class="play-layout"><div><h2 id="glitch-title">Включай.<br>Я <em>приличная.</em></h2><p class="play-intro">«Приличная» — первый трек Нюры.<br>Хорошо себя вести необязательно.</p><p class="mood-caption">Я не лапочка — я сбой.<br>Не знакомь меня с семьёй.</p></div><div class="sound-box"><div class="sound-header"><span>ПРИЛИЧНАЯ / НЮРА ГЛЮК</span><span id="play-time">0:00 / 2:29</span></div><div class="equalizer" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><button type="button" class="button lime sound-button" id="play" aria-pressed="false">Слушать «Приличную»</button><audio id="song" controls preload="metadata" src="assets/prilichnaya.mp3" aria-label="Нюра Глюк — Приличная">Ваш браузер не поддерживает плеер.</audio><p class="demo-note">Полная демозапись · 2:29<br>Песня запускается только по нажатию.</p><p class="sr-only" id="audio-state" role="status"></p></div></div></section>
+<section class="closing"><p class="eyebrow">ПЕРВОЕ ЗНАКОМСТВО СОСТОЯЛОСЬ</p><p>Я не лапочка.<br><span>Ты предупреждён.</span></p><a class="button dark" href="#home">Ещё раз посмотреть на Нюру</a></section>
+</main>
+<footer><a class="footer-brand" href="#home">НЮРА ГЛЮК ✳</a><span>НЕ ЛЕЧИ. ВКЛЮЧАЙ.</span><span>© 2026 НЮРА ГЛЮК</span></footer>
+</body></html>
