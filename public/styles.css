@@ -6,3 +6,5 @@
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}}
 
 #song{display:block;width:100%;margin-top:20px;height:44px;color-scheme:dark}.status{max-width:100%}
+
+.player-tracks{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}.player-tracks button{background:transparent;color:var(--paper);border:1px solid #53544b;padding:10px 14px;font-size:14px;min-height:44px;text-align:left}.player-tracks button[aria-pressed=true]{background:var(--lime);color:var(--bg);border-color:var(--lime)}.track-listen{background:var(--lime);color:var(--bg);border:0;padding:12px 16px;font-size:14px;font-weight:bold;min-height:44px;margin-top:8px}.track-meta h3{overflow-wrap:anywhere}.sound-header>span:first-child{min-width:0}.sound-header>span:last-child{white-space:nowrap}.track-meta{flex-wrap:wrap}@media(max-width:700px){.track-listen{grid-column:2}.sound-button{white-space:normal}.player-tracks button{flex:1 1 100%}}
