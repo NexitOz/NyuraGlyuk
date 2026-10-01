@@ -26,7 +26,7 @@
  function shatterSound(){noiseBurst(.48,750,.85);for(let i=0;i<7;i++)ping(rand(1400,4800),rand(.07,.28),.1);}
  function clink(speed){const now=performance.now();if(speed<70||now-lastClink<75)return;lastClink=now;ping(rand(1600,4400),.09,Math.min(.2,speed/3500));noiseBurst(.035,2400,.05);}
  function scrape(speed){const now=performance.now();if(speed<12||now-lastScrape<75)return;lastScrape=now;noiseBurst(.1,1700,Math.min(.25,speed/1800));if(Math.random()<.3)clink(speed);}
- function vertices(p){const c=Math.cos(p.angle),s=Math.sin(p.angle);return p.local.map(v=>({x:p.x+v.x*c-v.y*s,y:p.y+v.x*s+v.y*c}));}
+ function vertices(p){const c=Math.cos(p.angle),s=Math.sin(p.angle);const tilt=1-.72*(p.flat||0);return p.local.map(v=>({x:p.x+v.x*c-v.y*tilt*s,y:p.y+v.x*s+v.y*tilt*c}));}
  function path(points){ctx.beginPath();points.forEach((v,i)=>i?ctx.lineTo(v.x,v.y):ctx.moveTo(v.x,v.y));ctx.closePath();}
  function draw(){
   ctx.clearRect(0,0,W,H);
@@ -48,7 +48,7 @@
  function fragment(a,b,c,hit){
   const x=(a.x+b.x+c.x)/3,y=(a.y+b.y+c.y)/3,local=[a,b,c].map(v=>({x:v.x-x,y:v.y-y})),area=Math.abs((b.x-a.x)*(c.y-a.y)-(b.y-a.y)*(c.x-a.x))/2;
   const dx=x-hit.x,dy=y-hit.y,len=Math.hypot(dx,dy)||1;
-  return {x,y,local,radius:Math.max(...local.map(v=>Math.hypot(v.x,v.y))),mass:Math.max(.4,area/6500),angle:0,vx:dx/len*rand(100,230)+rand(-40,40),vy:dy/len*rand(80,160)-120,spin:rand(-2.8,2.8),tint:rand(.16,.34),sleep:0};
+  return {x,y,local,radius:Math.max(...local.map(v=>Math.hypot(v.x,v.y))),mass:Math.max(.4,area/6500),angle:0,vx:dx/len*rand(100,230)+rand(-40,40),vy:dy/len*rand(80,160)-120,spin:rand(-2.8,2.8),tint:rand(.16,.34),sleep:0,flat:0,restAngle:0};
  }
  function fracture(hit){
   const cols=5,rows=3,grid=[];for(let j=0;j<=rows;j++){grid[j]=[];for(let i=0;i<=cols;i++)grid[j][i]={x:pane.x+i*pane.w/cols+(i>0&&i<cols?rand(-23,23):0),y:pane.y+j*pane.h/rows+(j>0&&j<rows?rand(-19,19):0)};}
@@ -62,9 +62,9 @@
   if((b.x-a.x)*nx+(b.y-a.y)*ny<0){nx=-nx;ny=-ny;}return {depth,nx,ny};
  }
  function physics(dt){
-  for(const p of pieces){if(drag?.piece===p)continue;if(p.sleep>65)continue;p.vy+=1400*dt;p.vx*=Math.exp(-.25*dt);p.spin*=Math.exp(-.65*dt);p.x+=p.vx*dt;p.y+=p.vy*dt;p.angle+=p.spin*dt;
+  for(const p of pieces){if(drag?.piece===p)continue;if(p.sleep>65)continue;p.vy+=1400*dt;p.vx*=Math.exp(-.25*dt);p.spin*=Math.exp(-.65*dt);p.x+=p.vx*dt;p.y+=p.vy*dt;p.angle+=p.spin*dt;if(p.flat>0){p.flat=Math.min(1,p.flat+dt*2.3);p.angle+=(p.restAngle-p.angle)*Math.min(1,dt*5);p.spin*=.8;}
    const v=vertices(p),bottom=Math.max(...v.map(q=>q.y)),left=Math.min(...v.map(q=>q.x)),right=Math.max(...v.map(q=>q.x));
-   if(bottom>floor){p.y-=bottom-floor;if(p.vy>0){clink(p.vy);p.vy=p.vy>70?-p.vy*.22:0;}p.vx*=.9;p.spin*=.72;}
+   if(bottom>floor){if(p.flat===0){p.flat=.01;p.restAngle=Math.round(p.angle/Math.PI)*Math.PI+rand(-.13,.13);}p.y-=bottom-floor;if(p.vy>0){clink(p.vy);p.vy=p.vy>70?-p.vy*.22:0;}p.vx*=.9;p.spin*=.72;}
    if(left<6){p.x+=6-left;p.vx=Math.abs(p.vx)*.3;}if(right>W-6){p.x-=right-(W-6);p.vx=-Math.abs(p.vx)*.3;}
    if(Math.abs(p.vx)+Math.abs(p.vy)+Math.abs(p.spin)*12<7&&bottom>=floor-2)p.sleep++;else p.sleep=0;
   }
