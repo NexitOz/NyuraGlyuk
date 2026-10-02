@@ -1,7 +1,7 @@
 const tracks=[
  {title:'Приличная',lines:['Я не лапочка — я сбой,','Не знакомь меня с семьёй.','Я приличная. Почти.','При мне маме не пиши.'],src:'assets/prilichnaya.mp3',duration:149,button:'Слушать «Приличную»'},
  {title:'Не лечи меня — включи',lines:['Не лечи меня — включи!','Слышишь бас? Тогда молчи.','Я хорошей быть не хочу —','Я не сломана — я так звучу!'],src:'assets/ne-lechi-menya-vklyuchi.mp3',duration:122,button:'Слушать «Не лечи меня — включи»'},
- {title:'Я в пакетике',lines:['Не трогай — я в пакетике,','В домашней эстетике.','Шуршу, шуршу, шуршу —','Я никуда не спешу.']}
+ {title:'Я не сигма — я сигнал',lines:['Я не сигма — я сигнал!','Ты поймал — и всё, пропал.','Сикс-севен — качай сильней!','Аура бьёт без батарей!'],src:'assets/ya-ne-sigma-ya-signal.mp3',duration:132,button:'Слушать «Я не сигма — я сигнал»'}
 ];
 let selectedTrack=0,selectedSong=0;
 const song=document.querySelector('#song'),box=document.querySelector('.sound-box'),play=document.querySelector('#play'),audioState=document.querySelector('#audio-state');
