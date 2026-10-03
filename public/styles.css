@@ -61,3 +61,13 @@
 @media(max-width:380px){.closing>p:not(.eyebrow){font-size:clamp(30px,9vw,34px)}}
 @media(max-width:1050px){.shorts-grid{gap:18px}.short-play{left:12px;right:12px;bottom:12px;padding:10px;gap:7px;font-size:11px}.short-meta h3{font-size:17px}.header nav{gap:20px}}
 @media(max-width:700px){.shorts-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:26px 16px}.shorts h2{font-size:44px}.short-meta{padding-top:13px}.short-meta h3{font-size:17px}.short-meta p{font-size:12px}.short-work-number{font-size:clamp(65px,19vw,115px)}.short-tape{font-size:11px;letter-spacing:.5px;padding:10px 0}.short-tape-back{font-size:9px}.short-work-note{left:12px;right:12px;bottom:13px;font-size:9px;letter-spacing:.6px}.short-index,.short-duration{top:10px;font-size:10px;padding:4px 6px}.short-index{left:10px}.short-duration{right:10px}.short-play{left:10px;right:10px;bottom:10px;font-size:10px;letter-spacing:.4px;padding:9px;gap:6px}.short-play svg{width:14px;height:14px}.short-modal-shell{padding:12px}.short-modal-head h2{font-size:16px}.header nav{gap:12px}}
+
+/* Community links use Nyura's lime accent and square button shape. */
+.social-vk{width:auto;gap:9px;padding:0 13px;background:var(--lime);color:var(--bg);border-color:var(--lime);font-size:11px;font-weight:800;letter-spacing:.5px;white-space:nowrap}
+.social-vk svg,.footer-vk svg{filter:none}
+.social-vk:hover{background:var(--paper);color:var(--bg);border-color:var(--paper)}
+.footer-links{display:flex;flex-wrap:wrap;align-items:center;gap:24px;min-width:0}
+.footer-vk .social-link{background:var(--lime);color:var(--bg);border-color:var(--lime)}
+.footer-vk:hover{color:var(--lime)}
+@media(max-width:1050px){.header{height:auto;min-height:88px;flex-wrap:wrap;padding-top:12px;padding-bottom:12px;row-gap:12px}.header-actions{margin-left:auto}.header nav{order:2;flex:1 0 100%;justify-content:space-between}.header nav a:last-child{display:inline}}
+@media(max-width:700px){.header{min-height:70px;padding-top:10px;padding-bottom:10px;row-gap:8px}.header .social-vk{width:44px;padding:0}.social-vk-label{display:none}.footer-links{gap:16px}}
