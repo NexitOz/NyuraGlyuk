@@ -8,6 +8,7 @@
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23c9fc39'/%3E%3Cpath d='M15 16v32m0-16h24m0-16v32m7-25h8v8h-8z' stroke='%2310110f' stroke-width='7' fill='none'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="styles.css">
 <script src="app.js" defer></script>
+<script src="shorts.js" defer></script>
 <script src="glass.js" defer></script>
 <script src="atmosphere.js" defer></script>
 </head>
@@ -16,7 +17,7 @@
 <a class="skip" href="#tracks">К трекам</a>
 <header class="header">
  <a class="brand" href="#home" aria-label="Нюра Глюк — начало">НГ<span class="brand-dot">✳</span></a>
- <nav aria-label="Навигация"><a href="#tracks">Треки</a><a href="#nyura">Кто такая Нюра</a><a href="#glass">Похулиганим</a></nav>
+ <nav aria-label="Навигация"><a href="#tracks">Треки</a><a href="#shorts">Видео</a><a href="#nyura">Кто такая Нюра</a><a href="#glass">Похулиганим</a></nav>
  <div class="header-actions"><a class="social-link" href="https://www.tiktok.com/@nyuraglyuk" target="_blank" rel="noopener noreferrer" aria-label="Нюра Глюк в TikTok — открыть в новой вкладке" title="Нюра в TikTok"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M16.7 1.5c.3 3.2 2.1 5 5.3 5.2v4.1a9.3 9.3 0 0 1-5.3-1.6v7.5a7.3 7.3 0 1 1-6.3-7.2v4.2a3.2 3.2 0 1 0 2.2 3V1.5z"/></svg></a><button class="atmosphere-toggle" id="atmosphere-toggle" type="button" aria-pressed="true">Ночной свет: вкл.</button></div>
 </header>
 <main>
@@ -37,8 +38,34 @@
 </section>
 <section class="about" id="nyura" aria-labelledby="about-title"><div class="about-image"><img src="assets/nyura.webp" alt="Портрет Нюры Глюк" width="1254" height="1254" loading="lazy"><span class="image-sticker">НЕ ПАИНЬКА</span></div><div class="about-copy"><p class="eyebrow">02 / ЗНАКОМИМСЯ БЕЗ ПРИЛИЧИЙ</p><h2 id="about-title">Мама,<br>это <em>глюк.</em></h2><p>Нюра поёт то, что ты хотел сказать, но отправил стикером.</p><p>Бывшие, ночные магазины, отменённые планы и уверенность, которой хватит на весь танцпол. Виртуальная девушка. Очень знакомые заморочки.</p><div class="personality"><span>ЕХИДНАЯ</span><span>ШУМНАЯ</span><span>САМА СЕБЕ КРАШ</span></div><p class="signature">«У меня внутри бардак.<br>Мне красиво даже так».</p></div></section>
 <section class="section playground" id="glitch" aria-labelledby="glitch-title"><div class="section-top"><p class="eyebrow">03 / ТРИ ЗАПИСИ</p><span class="small-note">Соседи потерпят. Но это не точно.</span></div><div class="play-layout"><div><h2 id="glitch-title">Включай.<br>Я <em>так звучу.</em></h2><p class="play-intro">«Приличная», «Не лечи меня — включи»<br>и «Я не сигма — я сигнал».<br>Хорошо себя вести необязательно.</p><p class="nyura-reaction"><span>НЮРА НА СВЯЗИ</span><b data-nyura-reaction role="status">Не лечи. Осмотрись.</b></p></div><div class="sound-box"><div class="player-tracks" role="group" aria-label="Выбрать запись"><button type="button" data-song="0" aria-pressed="true">Приличная</button><button type="button" data-song="1" aria-pressed="false">Не лечи меня — включи</button><button type="button" data-song="2" aria-pressed="false">Я не сигма — я сигнал</button></div><div class="sound-header"><span id="player-title">ПРИЛИЧНАЯ / НЮРА ГЛЮК</span><span id="play-time">0:00 / 2:29</span></div><div class="equalizer" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><button type="button" class="button lime sound-button" id="play" aria-pressed="false">Слушать «Приличную»</button><audio id="song" controls controlslist="nodownload" preload="metadata" src="assets/prilichnaya.mp3" aria-label="Нюра Глюк — Приличная">Ваш браузер не поддерживает плеер.</audio><p class="demo-note"><span id="recording-note">Полная запись · 2:29</span><br>Песня запускается только по нажатию.</p><p class="sr-only" id="audio-state" role="status"></p></div></div></section>
+<section class="section shorts" id="shorts" aria-labelledby="shorts-title">
+ <div class="section-top"><p class="eyebrow">04 / КОРОТКИЙ КОНТАКТ</p><span class="small-note">Смотри. Остальное я ещё придумаю.</span></div>
+ <h2 id="shorts-title">Нюра.<br><em>В движении.</em></h2>
+ <div class="shorts-grid">
+  <article class="short-card">
+   <button class="short-visual short-watch" type="button" data-short-src="https://d2ol7oe51mr4n9.cloudfront.net/user_3CGrF5Jo6kSk9RR8jCMud7DzlCl/0315c774-cf15-4974-b023-eeb436b560cb.mp4" data-short-title="Нюра на связи" aria-label="Смотреть короткий ролик «Нюра на связи»" aria-haspopup="dialog" aria-controls="short-modal">
+    <img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3CGrF5Jo6kSk9RR8jCMud7DzlCl/dffbda1e-db2b-4c8e-ba16-6c52455d7bac.webp" alt="" width="720" height="1280" loading="lazy" decoding="async">
+    <span class="short-index" aria-hidden="true">НГ / 01</span><span class="short-duration">0:23</span>
+    <span class="short-play"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 4v16l13-8z"/></svg>СМОТРЕТЬ<span aria-hidden="true">↗</span></span>
+   </button>
+   <div class="short-meta"><h3>Нюра на связи</h3><p>Поймай этот глюк.</p></div>
+  </article>
+  <article class="short-card short-pending" aria-label="Второй ролик пока готовится">
+   <div class="short-visual short-work"><span class="short-index" aria-hidden="true">НГ / 02</span><span class="short-work-number" aria-hidden="true">02</span><div class="short-tape short-tape-back" aria-hidden="true">НЮРА В ПРОЦЕССЕ ✳ НЮРА В ПРОЦЕССЕ</div><div class="short-tape" aria-hidden="true">НЕ ДОДУМАЛА / НЕ ДОДУМАЛА</div><span class="short-work-note">ПЛОХАЯ ИДЕЯ<br>В РАЗРАБОТКЕ</span></div>
+   <div class="short-meta"><h3>Ещё не додумала</h3><p>Думаю. Не мешай.</p></div>
+  </article>
+  <article class="short-card short-pending" aria-label="Третий ролик пока готовится">
+   <div class="short-visual short-work"><span class="short-index" aria-hidden="true">НГ / 03</span><span class="short-work-number" aria-hidden="true">03</span><div class="short-tape short-tape-back" aria-hidden="true">НЮРА В ПРОЦЕССЕ ✳ НЮРА В ПРОЦЕССЕ</div><div class="short-tape" aria-hidden="true">НЕ ДОДУМАЛА / НЕ ДОДУМАЛА</div><span class="short-work-note">ТУТ СКОРО<br>ГЛЮКАНЁТ</span></div>
+   <div class="short-meta"><h3>Тут будет глюк</h3><p>Собираю плохую идею.</p></div>
+  </article>
+  <article class="short-card short-pending" aria-label="Четвёртый ролик пока готовится">
+   <div class="short-visual short-work"><span class="short-index" aria-hidden="true">НГ / 04</span><span class="short-work-number" aria-hidden="true">04</span><div class="short-tape short-tape-back" aria-hidden="true">НЮРА В ПРОЦЕССЕ ✳ НЮРА В ПРОЦЕССЕ</div><div class="short-tape" aria-hidden="true">НЕ ДОДУМАЛА / НЕ ДОДУМАЛА</div><span class="short-work-note">НЕ ТРОГАЙ.<br>ЭТО ТВОРЧЕСКОЕ.</span></div>
+   <div class="short-meta"><h3>Не трогай. Думаю.</h3><p>Вернусь с шумом.</p></div>
+  </article>
+ </div>
+</section>
 <section class="section glass-playground" id="glass" aria-labelledby="glass-title">
- <div class="section-top"><p class="eyebrow">04 / ПЛОХАЯ ИДЕЯ. МОЯ ЛЮБИМАЯ.</p><span class="small-note glass-reaction" data-nyura-reaction>Музыка громче. Стекло — вдребезги.</span></div>
+ <div class="section-top"><p class="eyebrow">05 / ПЛОХАЯ ИДЕЯ. МОЯ ЛЮБИМАЯ.</p><span class="small-note glass-reaction" data-nyura-reaction>Музыка громче. Стекло — вдребезги.</span></div>
  <div class="glass-heading"><h2 id="glass-title">Ну что,<br><em>похулиганим?</em></h2><p>Кинь камень в стекло.<br>Потом потаскай стекло по мокрому асфальту.</p></div>
  <div class="glass-stage" id="glass-stage"><canvas id="glass-canvas" width="900" height="650" tabindex="0" role="application" aria-label="Интерактивное стекло. Нажми на стекло или Enter, чтобы кинуть камень." aria-describedby="glass-help">Используй кнопку «Кинуть камень», чтобы разбить стекло.</canvas></div>
  <div class="glass-controls"><button class="button lime" type="button" id="glass-throw">Кинуть камень</button><button class="button secondary" type="button" id="glass-shuffle" disabled>Пошевелить осколки</button><button class="button secondary" type="button" id="glass-reset">Новое стекло</button><button class="glass-sound" type="button" id="glass-sound" aria-pressed="true" aria-label="Звуки стекла">Звук: вкл.</button></div>
@@ -46,5 +73,12 @@
 </section>
 <section class="closing"><p class="eyebrow">ПЕРВОЕ ЗНАКОМСТВО СОСТОЯЛОСЬ</p><p>Я не лапочка.<br><span>Ты предупреждён.</span></p><a class="button dark" href="#home">Ещё раз посмотреть на Нюру</a></section>
 </main>
+<dialog class="short-modal" id="short-modal" aria-labelledby="short-modal-title">
+ <div class="short-modal-shell">
+  <div class="short-modal-head"><h2 id="short-modal-title">Нюра на связи</h2><button class="short-close" type="button" aria-label="Закрыть видео" autofocus><span aria-hidden="true">×</span></button></div>
+  <video id="short-video" controls playsinline controlslist="nodownload" preload="none" aria-label="Короткий ролик Нюры Глюк">Ваш браузер не поддерживает видео.</video>
+  <p class="short-modal-state" id="short-video-state" role="status"></p>
+ </div>
+</dialog>
 <footer><a class="footer-brand" href="#home">НЮРА ГЛЮК ✳</a><span>НЕ ЛЕЧИ. ВКЛЮЧАЙ.</span><a class="footer-social" href="https://www.tiktok.com/@nyuraglyuk" target="_blank" rel="noopener noreferrer" aria-label="Нюра Глюк в TikTok — открыть в новой вкладке"><span class="social-link" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M16.7 1.5c.3 3.2 2.1 5 5.3 5.2v4.1a9.3 9.3 0 0 1-5.3-1.6v7.5a7.3 7.3 0 1 1-6.3-7.2v4.2a3.2 3.2 0 1 0 2.2 3V1.5z"/></svg></span><span>@nyuraglyuk</span></a><span>© 2026 НЮРА ГЛЮК</span></footer>
 </body></html>
